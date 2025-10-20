@@ -1,8 +1,19 @@
-# node-echarts-demo
+// 引入必要的库
+const echarts = require('echarts');
+const { createCanvas } = require('canvas');
+const fs = require('fs');
+const path = require('path');
 
-在系列（series）中，为每个数据点设置了标签（label）并设置为显示（show: true）且位置在顶部（position: 'top'）。
+// 创建画布
+const width = 800;  // 图表宽度
+const height = 500; // 图表高度
+const canvas = createCanvas(width, height);
+const ctx = canvas.getContext('2d');
 
-```js
+// 初始化ECharts实例
+const chart = echarts.init(canvas);
+
+// 配置折线图数据和样式
 const option = {
     backgroundColor: '#ffffff',
   title: {
@@ -58,18 +69,18 @@ const option = {
       }
     }
   ]
-}
-```
+};
 
-但是，在实际生成图表中标签没有出现。图表如下：
+// 设置图表配置项
+chart.setOption(option);
 
-![](./line-chart.png)
-
-依赖项版本：
-
-```JSON
-  "dependencies": {
-    "canvas": "^3.2.0",
-    "echarts": "^6.0.0"
+// 将图表保存为图片
+const outputPath = path.join(__dirname, 'line-chart.png');
+const buffer = canvas.toBuffer('image/png');
+fs.writeFile(outputPath, buffer, (err) => {
+  if (err) {
+    console.error('保存图片失败:', err);
+  } else {
+    console.log(`折线图已保存至: ${outputPath}`);
   }
-```
+});
