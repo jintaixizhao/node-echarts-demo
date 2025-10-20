@@ -1,6 +1,8 @@
 # node-echarts-demo
 
-在系列（series）中，为每个数据点设置了标签（label）并设置为显示（show: true）且位置在顶部（position: 'top'）。
+我有一个node应用，需要在服务端生成echarts图表。
+
+在系列（series）中，为每个数据点设置了标签（label）并设置为显示（show: true）且位置在顶部（position: 'top'）。option的配置如下所示：
 
 ```js
 const option = {
@@ -61,7 +63,7 @@ const option = {
 }
 ```
 
-但是，在实际生成图表中标签没有出现。图表如下：
+但是，在实际生成图表中标签没有出现，图表如下：
 
 ![](./line-chart.png)
 
@@ -73,3 +75,7 @@ const option = {
     "echarts": "^6.0.0"
   }
 ```
+
+将该option放在官网示例的编辑器中，生成的图表如下：
+
+![](./line-chart-in-browser.png)
