@@ -79,3 +79,10 @@ const option = {
 将该option放在官网示例的编辑器中，生成的图表如下：
 
 ![](./line-chart-in-browser.png)
+
+&nbsp;
+
+问题已解决：通过设置option.animation:false解决，issue地址：https://github.com/apache/echarts/issues/21323。
+
+
+
